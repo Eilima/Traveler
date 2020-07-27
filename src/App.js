@@ -4,17 +4,31 @@ import { SearchBar } from "./Components/SearchBar/SeachBar";
 import { WeatherResults } from "./Components/WeatherResults/WeatherResults";
 import { YelpResults } from "./Components/YelpResults/YelpResults";
 
-function App() {
-  const [cityName, setCityName] = useState(null);
+import OpenWeatherMap from "./utils/OpenWeatherMap";
 
-  const handleCityNameChange = (e) => {
-    setCityName(e.target.value);
+function App() {
+  const [location, changeLocation] = useState(null);
+  const [temperature, changeTemperature] = useState(null);
+  const [humidity, changeHumidity] = useState(null);
+  const [description, changeDescription] = useState(null);
+  const weatherInfo = { location, temperature, humidity, description };
+
+  const searchOpenWeatherMap = (cityName) => {
+    console.log("start of call");
+    OpenWeatherMap.weatherSearch(cityName).then(
+      changeLocation(OpenWeatherMap.location),
+      changeTemperature(OpenWeatherMap.temperature),
+      changeHumidity(OpenWeatherMap.humidity),
+      changeDescription(OpenWeatherMap.description)
+    );
+
+    console.log("weather api called");
   };
 
   return (
     <div className="App">
-      <SearchBar handleChange={handleCityNameChange} cityName={cityName} />
-      <WeatherResults />
+      <SearchBar searchOpenWeatherMap={searchOpenWeatherMap} />
+      <WeatherResults weatherInfo={weatherInfo} />
       <YelpResults />
     </div>
   );

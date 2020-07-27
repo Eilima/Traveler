@@ -1,41 +1,28 @@
 import React from "react";
-import OpenWeatherMap from "../../utils/OpenWeatherMap";
 
 export class SearchBar extends React.Component {
   state = {
-    location: null,
-    temperature: null,
-    humidity: null,
-    description: null,
+    cityName: null,
   };
 
-  searchOpenWeatherMap(cityName) {
-    console.log("start of call");
-    const weatherInfo = OpenWeatherMap.weatherSearch(cityName);
-
+  changeCityName = (e) => {
     this.setState({
-      location: weatherInfo.location,
-      temperature: weatherInfo.temperature,
-      humidity: weatherInfo.humidity,
-      description: weatherInfo.description,
+      cityName: e.target.value,
     });
-    console.log("weather api called");
-  }
+  };
 
-  handleSubmit = (e) => {
-    this.searchOpenWeatherMap(this.props.cityName);
+  handleWeatherSearch = (e) => {
+    this.props.searchOpenWeatherMap(this.state.cityName);
     e.preventDefault();
+    console.log("handleWeatherSearch");
   };
 
   render() {
     return (
       <div>
         <form>
-          <input
-            placeholder="Location/City"
-            onChange={this.props.handleChange}
-          />
-          <button onClick={this.handleSubmit}>Submit</button>
+          <input placeholder="Location/City" onChange={this.changeCityName} />
+          <button onClick={this.handleWeatherSearch}>Submit</button>
         </form>
       </div>
     );
