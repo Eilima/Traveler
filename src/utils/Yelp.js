@@ -1,7 +1,7 @@
 const apiKey =
   "7VoKtR0Xv74YUgYbPe7nxgm_bI9XAHVzv4dNKtb1l9jJlMClox8DGfhYys5NuYosox87UWytNI8-zUSXfyiQM-CvmUzzvETFg-s5l7xC4AxIToEOAygmMvlYPjkeX3Yx"; // Insert API key here.
 const Yelp = {
-  async yelpSearch(term, location) {
+  async yelpSearch(location) {
     const response = await fetch(
       `https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=Restaurants&location=${location}&sort_by=rating&limit=5`,
       {
