@@ -7,7 +7,6 @@ const OpenWeatherMap = {
     );
     const data = await response.json();
     if (data.cod === 200) {
-      console.log("test");
       return {
         location: data.name,
         temperature: data.main.temp,
