@@ -13,6 +13,7 @@ export class SearchBar extends React.Component {
 
   handleWeatherSearch = (e) => {
     this.props.searchOpenWeatherMap(this.state.cityName);
+    this.props.searchYelp(this.state.cityName);
     e.preventDefault();
   };
 
