@@ -6,7 +6,8 @@ const OpenWeatherMap = {
       `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=metric&appid=${API_KEY}`
     );
     const data = await response.json();
-    if (!(data.cod === "404") || !(data.cod === "400")) {
+    if (data.cod === 200) {
+      console.log("test");
       return {
         location: data.name,
         temperature: data.main.temp,
