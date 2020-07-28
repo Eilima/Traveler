@@ -12,17 +12,13 @@ function App() {
   const [humidity, changeHumidity] = useState(null);
   const [description, changeDescription] = useState(null);
   const weatherInfo = { location, temperature, humidity, description };
-
   const searchOpenWeatherMap = (cityName) => {
-    console.log("start of call");
-    OpenWeatherMap.weatherSearch(cityName).then(
-      changeLocation(OpenWeatherMap.location),
-      changeTemperature(OpenWeatherMap.temperature),
-      changeHumidity(OpenWeatherMap.humidity),
-      changeDescription(OpenWeatherMap.description)
-    );
-
-    console.log("weather api called");
+    OpenWeatherMap.weatherSearch(cityName).then((weather) => {
+      changeLocation(weather.location);
+      changeTemperature(weather.temperature);
+      changeHumidity(weather.humidity);
+      changeDescription(weather.description);
+    });
   };
 
   return (
