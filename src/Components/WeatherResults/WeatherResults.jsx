@@ -5,10 +5,10 @@ export class WeatherResults extends React.Component {
     return (
       <div>
         <p>Weather Results</p>
-        {/* <p>{this.state.location}</p>
-        <p>{this.state.temperature}</p>
-        <p>{this.state.humidity}</p>
-        <p>{this.state.description}</p> */}
+        <p>{this.props.weatherInfo.location}</p>
+        <p>{this.props.weatherInfo.temperature}</p>
+        <p>{this.props.weatherInfo.humidity}</p>
+        <p>{this.props.weatherInfo.description}</p>
       </div>
     );
   }
