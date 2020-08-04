@@ -1,0 +1,12 @@
+.weather-card {
+  background-color: rgb(0, 70, 128);
+  color: white;
+  padding-top: 0.8rem;
+  padding-bottom: 0.6rem;
+}
+.horizontal-weather-description p {
+  display: inline-block;
+  padding: 0rem 6rem;
+  font-size: large;
+  text-transform: capitalize;
+}
