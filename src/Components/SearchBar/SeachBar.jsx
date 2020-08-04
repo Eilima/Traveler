@@ -1,5 +1,7 @@
 import React from "react";
 
+import "./SearchBar.css";
+
 export class SearchBar extends React.Component {
   state = {
     cityName: null,
@@ -19,7 +21,7 @@ export class SearchBar extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="search-bar">
         <form>
           <input placeholder="Location/City" onChange={this.changeCityName} />
           <button onClick={this.handleWeatherSearch}>Submit</button>
