@@ -1,4 +1,5 @@
 import React from "react";
+
 import "./BusinessList.css";
 
 export const BusinessList = (props) => {
@@ -17,7 +18,7 @@ export const BusinessList = (props) => {
           <p>{`${props.business.state} ${props.business.zipCode}`}</p>
         </div>
         <div className="Business-reviews">
-          <h3>{props.business.category.toUpperCase()}</h3>
+          <h3>{props.business.category}</h3>
           <h3 className="rating">{`${props.business.rating} stars`}</h3>
           <p>{`${props.business.reviewCount} reviews`}</p>
         </div>
