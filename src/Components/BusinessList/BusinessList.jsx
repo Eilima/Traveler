@@ -2,6 +2,7 @@ import React from "react";
 
 import "./BusinessList.css";
 
+// Function that returns information about each business individually
 export const BusinessList = (props) => {
   return (
     <div className="Business">
