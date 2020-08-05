@@ -18,8 +18,10 @@ export class WeatherResults extends React.Component {
       return (
         <div className="weather-card">
           <h3>Weather</h3>
+          {/* City name */}
           <p>{this.props.weatherInfo.location}</p>
           <div className="horizontal-weather-description">
+            {/* Information about temperature humidity and the description of the weather */}
             <p>{this.props.weatherInfo.temperature}°C</p>
             <p>{this.props.weatherInfo.humidity}%</p>
             <p>{this.props.weatherInfo.description}</p>
